@@ -1,0 +1,37 @@
+# Sample Document for Testing
+
+This is a sample text document to test the manual ingestion pipeline. It contains multiple paragraphs and sentences to demonstrate the text chunking functionality.
+
+## Introduction
+
+The AI Document System is designed to automatically process and index various types of documents including PDFs, Word documents, and plain text files. This system uses advanced text processing techniques to break documents into manageable chunks for vector search and retrieval.
+
+## Features
+
+The system supports several key features:
+
+1. **Multi-format Support**: Handles PDF, DOCX, TXT, and Markdown files
+2. **Intelligent Chunking**: Splits documents into optimal-sized chunks with overlap
+3. **Database Storage**: Stores documents and chunks in PostgreSQL
+4. **Vector Search**: Enables semantic search through document content
+5. **Real-time Processing**: Monitors directories for new documents
+
+## Technical Architecture
+
+The system is built using Node.js and consists of several key components:
+
+- **Document Processor**: Extracts text from various file formats
+- **Text Chunker**: Splits text into semantic chunks
+- **Database Manager**: Handles database operations
+- **File Watcher**: Monitors directories for changes
+- **CLI Tools**: Provides manual ingestion capabilities
+
+## Testing
+
+This document serves as a test case for the manual ingestion pipeline. When processed, it should be split into multiple chunks based on the configured chunk size and overlap settings.
+
+The chunking algorithm considers sentence boundaries and paragraph breaks to ensure that related content stays together while maintaining optimal chunk sizes for vector processing.
+
+## Conclusion
+
+This sample document demonstrates the basic functionality of the AI Document System and provides a foundation for testing the complete ingestion pipeline from file processing to database storage.

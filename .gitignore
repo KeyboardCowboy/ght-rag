@@ -1,0 +1,51 @@
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# DDEV and Docker
+.ddev/.env
+.ddev/db_data/
+.ddev/import-db/
+.ddev/.downloads/
+.ddev/.webimageBuild/
+.ddev/.dbimageBuild/
+.ddev/.gitignore
+
+# Database and persistent volumes
+pg_data/
+db_data/
+database/init/setup.sql
+
+# Build and cache
+dist/
+build/
+.cache/
+.tmp/
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+
+# Test output
+coverage/
+test-output/
+
+# Misc
+*.bak
+*.tmp
+*.old

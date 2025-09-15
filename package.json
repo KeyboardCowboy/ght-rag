@@ -1,0 +1,42 @@
+{
+  "name": "ai-document-system",
+  "version": "1.0.0",
+  "description": "Local AI Document System with Desktop App - Auto-indexing file system monitoring with AI-powered search",
+  "main": "index.js",
+  "scripts": {
+    "start": "node indexing-service/daemon.js",
+    "dev": "concurrently \"npm run dev:indexing\" \"npm run dev:desktop\"",
+    "dev:indexing": "nodemon indexing-service/daemon.js",
+    "dev:desktop": "cd desktop-app && npm run dev",
+    "build": "npm run build:indexing && npm run build:desktop",
+    "build:indexing": "cd indexing-service && npm run build",
+    "build:desktop": "cd desktop-app && npm run build",
+    "test": "npm run test:indexing && npm run test:desktop",
+    "test:indexing": "cd indexing-service && npm test",
+    "test:desktop": "cd desktop-app && npm test",
+    "setup": "npm install && cd indexing-service && npm install && cd ../desktop-app && npm install",
+    "ddev:start": "ddev start",
+    "ddev:stop": "ddev stop",
+    "ddev:restart": "ddev restart"
+  },
+  "keywords": [
+    "ai",
+    "document",
+    "search",
+    "vector",
+    "desktop",
+    "electron",
+    "postgresql",
+    "pgvector"
+  ],
+  "author": "Chris",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}

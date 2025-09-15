@@ -1,0 +1,48 @@
+name: ai-document-system
+type: php
+docroot: ""
+php_version: "8.2"
+webserver_type: nginx-fpm
+router_http_port: "80"
+router_https_port: "443"
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+mariadb_version: ""
+mysql_version: ""
+omit_containers: ["db"]
+nfs_mount_enabled: false
+mutagen_enabled: false
+use_dns_when_possible: true
+composer_version: ""
+
+# Node.js configuration
+nodejs_version: "18"
+npm_version: ""
+
+# Docker provider configuration
+docker_provider: colima
+
+# Additional services
+additional_services:
+  - pgvector
+
+# Port configuration for desktop app access
+additional_exposed_ports:
+  - name: postgres
+    container_port: 5432
+    http_port: 5432
+    https_port: 5433
+
+# Environment variables
+web_environment:
+  - NODE_ENV=development
+  - DATABASE_URL=postgresql://postgres:postgres@postgres:5432/ai_documents
+  - OPENAI_API_KEY=${OPENAI_API_KEY}
+
+# Commands
+hooks:
+  post-start:
+    - exec: "npm install"
+    - exec: "cd indexing-service && npm install"
+    - exec: "cd desktop-app && npm install"

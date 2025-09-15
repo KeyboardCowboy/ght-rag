@@ -1,0 +1,17 @@
+{"level":"info","message":"Starting ingestion of file: ../test-documents/sample.md","service":"indexing-service","timestamp":"2025-09-15T20:18:04.192Z"}
+{"code":"ENOTFOUND","errno":-3008,"hostname":"postgres","level":"error","message":"Failed to connect to database: getaddrinfo ENOTFOUND postgres","service":"indexing-service","stack":"Error: getaddrinfo ENOTFOUND postgres\n    at /Users/chris/www/ght-rag/project/ai-document-system/indexing-service/node_modules/pg-pool/index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async DatabaseConnection.connect (/Users/chris/www/ght-rag/project/ai-document-system/indexing-service/src/database/connection.js:22:22)\n    at async ingestFile (/Users/chris/www/ght-rag/project/ai-document-system/indexing-service/src/cli/ingest.js:71:3)\n    at async Command.<anonymous> (/Users/chris/www/ght-rag/project/ai-document-system/indexing-service/src/cli/ingest.js:30:7)","syscall":"getaddrinfo","timestamp":"2025-09-15T20:18:04.232Z"}
+{"level":"info","message":"Starting ingestion of file: ../test-documents/sample.md","service":"indexing-service","timestamp":"2025-09-15T20:18:48.798Z"}
+{"level":"info","message":"Database connection established successfully","service":"indexing-service","timestamp":"2025-09-15T20:18:48.823Z"}
+{"level":"info","message":"Processing document...","service":"indexing-service","timestamp":"2025-09-15T20:18:48.832Z"}
+{"level":"info","message":"Processing document: ../test-documents/sample.md (.md)","service":"indexing-service","timestamp":"2025-09-15T20:18:48.833Z"}
+{"level":"info","message":"Text file processed: 759 characters","service":"indexing-service","timestamp":"2025-09-15T20:18:48.833Z"}
+{"level":"info","message":"Document created: sample.md (ID: 3)","service":"indexing-service","timestamp":"2025-09-15T20:18:48.837Z"}
+{"level":"info","message":"Document 3 status updated to: processing","service":"indexing-service","timestamp":"2025-09-15T20:18:48.843Z"}
+{"level":"info","message":"Chunking text...","service":"indexing-service","timestamp":"2025-09-15T20:18:48.843Z"}
+{"level":"info","message":"Text chunked into 1 chunks","service":"indexing-service","timestamp":"2025-09-15T20:18:48.844Z"}
+{"level":"info","message":"Created 1 chunks for document 3","service":"indexing-service","timestamp":"2025-09-15T20:18:48.846Z"}
+{"level":"info","message":"Document 3 status updated to: completed","service":"indexing-service","timestamp":"2025-09-15T20:18:48.847Z"}
+{"level":"info","message":"Ingestion completed successfully!","service":"indexing-service","timestamp":"2025-09-15T20:18:48.847Z"}
+{"level":"info","message":"Database connection closed","service":"indexing-service","timestamp":"2025-09-15T20:18:48.848Z"}
+{"level":"info","message":"Database connection established successfully","service":"indexing-service","timestamp":"2025-09-15T20:18:50.832Z"}
+{"level":"info","message":"Database connection closed","service":"indexing-service","timestamp":"2025-09-15T20:18:50.838Z"}
