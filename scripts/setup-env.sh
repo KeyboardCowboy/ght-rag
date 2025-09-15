@@ -79,11 +79,10 @@ echo "✅ PostgreSQL is ready"
 # Install dependencies
 echo "📦 Installing dependencies..."
 ddev exec "npm install"
-ddev exec "cd indexing-service && npm install"
 
 # Test database connection
 echo "🔍 Testing database connection..."
-if ddev exec "cd indexing-service && node -e \"require('./src/database/connection').connect().then(() => console.log('✅ Database connection successful')).catch(e => {console.error('❌ Database connection failed:', e.message); process.exit(1)})\""; then
+if ddev exec "node -e \"require('./indexing-service/src/database/connection').connect().then(() => console.log('✅ Database connection successful')).catch(e => {console.error('❌ Database connection failed:', e.message); process.exit(1)})\""; then
     echo "✅ Database connection test passed"
 else
     echo "❌ Database connection test failed"
@@ -101,7 +100,7 @@ echo "   - Database Connection: Tested"
 echo ""
 echo "🚀 Next Steps:"
 echo "   1. Update OPENAI_API_KEY in .env file"
-echo "   2. Test manual ingestion: ddev exec 'cd indexing-service && npm run ingest file ../test-documents/sample.md --project test'"
+echo "   2. Test manual ingestion: ddev exec 'npm run ingest:file test-documents/sample.md --project test'"
 echo "   3. Start the system: ./scripts/start-system.sh"
 echo ""
 echo "📚 Documentation:"

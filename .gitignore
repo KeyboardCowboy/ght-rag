@@ -19,7 +19,6 @@ logs/
 *.log
 *.log.*
 indexing-service/logs/
-desktop-app/logs/
 
 # Database and Persistent Storage
 pg_data/
@@ -73,11 +72,6 @@ desktop.ini
 *.old
 *.orig
 *.rej
-
-# Electron Build Output (if desktop app is added later)
-desktop-app/dist/
-desktop-app/build/
-desktop-app/node_modules/
 
 # Vector Database Files
 *.index
