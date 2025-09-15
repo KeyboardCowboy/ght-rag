@@ -198,6 +198,30 @@ ddev exec "npm run ingest:directory test-documents --project test-batch"
 ddev exec "npm run ingest:directory /var/www/html/external-docs --project external-test"
 ```
 
+## 🔍 Database Query Tools
+
+### Non-Interactive CLI Access
+Query the database from outside DDEV for Claude Desktop/Cursor integration:
+
+```bash
+# List documents
+node scripts/query-db.js documents 5
+
+# Search content
+node scripts/query-db.js search "golden"
+
+# Test vector similarity search
+node scripts/query-db.js vector-test
+
+# Get database statistics
+node scripts/query-db.js stats
+
+# Run custom SQL
+node scripts/query-db.js custom "SELECT * FROM documents WHERE file_type = 'pdf'"
+```
+
+**Features**: JSON output, error handling, vector operations, content search
+
 ## 📚 Documentation
 
 - **[Setup Guide](docs/SETUP.md)** - Comprehensive setup instructions
