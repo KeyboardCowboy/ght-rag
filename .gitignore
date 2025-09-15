@@ -1,51 +1,102 @@
-# Node modules
-node_modules/
+# =============================================================================
+# AI Document System - .gitignore
+# =============================================================================
 
-# Environment files
+# Environment and Configuration
 .env
 .env.*
+!.env.example
 
-# Logs
-logs/
-*.log
+# Node.js Dependencies
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
-# OS generated files
-.DS_Store
-Thumbs.db
+# Logs and Runtime Data
+logs/
+*.log
+*.log.*
+indexing-service/logs/
+desktop-app/logs/
 
-# DDEV and Docker
-.ddev/.env
+# Database and Persistent Storage
+pg_data/
+db_data/
+postgres_data/
 .ddev/db_data/
 .ddev/import-db/
 .ddev/.downloads/
 .ddev/.webimageBuild/
 .ddev/.dbimageBuild/
-.ddev/.gitignore
+.ddev/.env
 
-# Database and persistent volumes
-pg_data/
-db_data/
-database/init/setup.sql
-
-# Build and cache
+# Build and Cache Directories
 dist/
 build/
 .cache/
 .tmp/
+.next/
+.nuxt/
+.vuepress/dist/
 
-# IDE/editor files
+# Test Coverage and Output
+coverage/
+test-output/
+.nyc_output/
+junit.xml
+
+# IDE and Editor Files
 .vscode/
 .idea/
 *.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
 
-# Test output
-coverage/
-test-output/
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
 
-# Misc
+# Temporary Files
 *.bak
 *.tmp
 *.old
+*.orig
+*.rej
+
+# Electron Build Output (if desktop app is added later)
+desktop-app/dist/
+desktop-app/build/
+desktop-app/node_modules/
+
+# Vector Database Files
+*.index
+*.faiss
+embeddings/
+
+# Document Processing Cache
+processing-cache/
+temp-documents/
+
+# AI Model Cache
+model-cache/
+embedding-cache/
+
+# Backup Files
+*.backup
+backups/
+
+# Lock Files (keep package-lock.json for main project)
+# Uncomment if you want to ignore all lock files
+# package-lock.json
+# yarn.lock
