@@ -10,6 +10,7 @@ additional_hostnames: []
 additional_fqdns: []
 mariadb_version: ""
 mysql_version: ""
+postgresql_version: ""
 omit_containers: ["db"]
 nfs_mount_enabled: false
 mutagen_enabled: false

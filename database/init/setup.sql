@@ -1,3 +1,6 @@
+-- Enable pgvector extension
+CREATE EXTENSION IF NOT EXISTS vector;
+
 -- Create documents table
 CREATE TABLE IF NOT EXISTS documents (
     id SERIAL PRIMARY KEY,
@@ -19,7 +22,7 @@ CREATE TABLE IF NOT EXISTS document_chunks (
     document_id INTEGER REFERENCES documents(id) ON DELETE CASCADE,
     chunk_index INTEGER NOT NULL,
     chunk_text TEXT NOT NULL,
-    chunk_embedding TEXT, -- OpenAI embeddings dimension (will be converted to vector later)
+    chunk_embedding vector(1536), -- OpenAI embeddings dimension (1536 for text-embedding-ada-002)
     metadata JSONB,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -55,7 +58,7 @@ CREATE INDEX IF NOT EXISTS idx_documents_file_path ON documents(file_path);
 CREATE INDEX IF NOT EXISTS idx_documents_processing_status ON documents(processing_status);
 CREATE INDEX IF NOT EXISTS idx_documents_project_folder ON documents(project_folder);
 CREATE INDEX IF NOT EXISTS idx_document_chunks_document_id ON document_chunks(document_id);
--- CREATE INDEX IF NOT EXISTS idx_document_chunks_embedding ON document_chunks USING ivfflat (chunk_embedding vector_cosine_ops);
+CREATE INDEX IF NOT EXISTS idx_document_chunks_embedding ON document_chunks USING ivfflat (chunk_embedding vector_cosine_ops);
 CREATE INDEX IF NOT EXISTS idx_processing_queue_status ON processing_queue(status);
 CREATE INDEX IF NOT EXISTS idx_processing_queue_priority ON processing_queue(priority);
 CREATE INDEX IF NOT EXISTS idx_watch_folders_active ON watch_folders(active);

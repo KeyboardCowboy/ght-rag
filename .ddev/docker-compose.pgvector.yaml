@@ -1,8 +1,6 @@
 services:
   postgres:
-    build:
-      context: ..
-      dockerfile: .ddev/Dockerfile.postgres
+    image: pgvector/pgvector:pg16
     container_name: ddev-ai-document-system-postgres
     restart: unless-stopped
     environment:
