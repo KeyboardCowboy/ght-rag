@@ -30,6 +30,7 @@ postgres_data/
 .ddev/.webimageBuild/
 .ddev/.dbimageBuild/
 .ddev/.env
+.ddev/docker-compose.override.yaml
 
 # Build and Cache Directories
 dist/

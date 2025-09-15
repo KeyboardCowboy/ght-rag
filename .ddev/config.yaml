@@ -27,6 +27,10 @@ docker_provider: colima
 additional_services:
   - pgvector
 
+# Volume mounts for external directories
+# DDEV uses additional_hostnames and additional_fqdns for external access
+# For volume mounts, we'll use docker-compose override
+
 # Port configuration for desktop app access
 additional_exposed_ports:
   - name: postgres
