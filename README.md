@@ -222,12 +222,44 @@ node scripts/query-db.js custom "SELECT * FROM documents WHERE file_type = 'pdf'
 
 **Features**: JSON output, error handling, vector operations, content search
 
+## 🌐 HTTP API Server
+
+### REST API for External Integration
+Full HTTP API server for Claude Desktop/Cursor integration:
+
+```bash
+# Start API server (outside DDEV)
+./scripts/start-api.sh
+
+# Start API server (inside DDEV)
+ddev api-server
+
+# Test API endpoints
+curl http://localhost:3001/health
+curl "http://localhost:3001/api/search?q=golden"
+curl -X POST "http://localhost:3001/api/ai/query" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "What is the history of Golden, Colorado?"}'
+```
+
+**Available Endpoints**:
+- `GET /health` - Health check
+- `GET /api/stats` - System statistics  
+- `GET /api/documents` - List documents
+- `GET /api/search?q=term` - Search documents
+- `POST /api/ai/query` - AI-powered analysis
+- `POST /api/search/similar` - Vector similarity search
+
+**Features**: REST API, JSON responses, CORS enabled, error handling, DDEV integration
+
 ## 📚 Documentation
 
 - **[Setup Guide](docs/SETUP.md)** - Comprehensive setup instructions
 - **[Quickstart Guide](QUICKSTART.md)** - Get running in 5 minutes
 - **[Project Plan](docs/project-plan.md)** - Complete development roadmap
 - **[Project Progress](docs/project-progress.md)** - Current status and progress
+- **[Claude Integration](docs/CLAUDE_INTEGRATION.md)** - Claude Desktop/Cursor integration guide
+- **[DDEV Integration](docs/DDEV_INTEGRATION.md)** - DDEV configuration and usage
 
 ## 🤝 Contributing
 

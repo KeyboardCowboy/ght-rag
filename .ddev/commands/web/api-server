@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# DDEV Command: Start API Server
+# Usage: ddev api-server
+
+echo "🚀 Starting AI Document System API Server..."
+
+# Check if we're in the right directory
+if [ ! -f "api-server/server-ddev.js" ]; then
+    echo "❌ Error: api-server/server-ddev.js not found"
+    echo "Make sure you're in the project root directory"
+    exit 1
+fi
+
+# Navigate to API server directory
+cd api-server
+
+# Install dependencies if needed
+if [ ! -d "node_modules" ]; then
+    echo "📦 Installing API server dependencies..."
+    npm install
+fi
+
+# Start the API server
+echo "🌐 Starting API server inside DDEV environment..."
+echo "📊 API will be available at: http://localhost:3001"
+echo "🔍 Health check: http://localhost:3001/health"
+echo ""
+echo "Press Ctrl+C to stop the server"
+echo ""
+
+node server-ddev.js
